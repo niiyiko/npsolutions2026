@@ -7,7 +7,7 @@ const MobileBackground: React.FC = () => {
     const container = particlesRef.current;
     if (!container) return;
 
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 15; i++) {
       const particle = document.createElement('span');
       const size = Math.random() * 3 + 1;
       particle.style.cssText = `

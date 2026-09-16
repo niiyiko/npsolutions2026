@@ -11,7 +11,7 @@ const MobileHero: React.FC<MobileHeroProps> = ({ onOpenModal }) => {
   useEffect(() => {
     const container = particlesRef.current;
     if (!container) return;
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 8; i++) {
       const p = document.createElement('span');
       const size = Math.random() * 3 + 1;
       p.style.cssText = `
@@ -34,7 +34,7 @@ const MobileHero: React.FC<MobileHeroProps> = ({ onOpenModal }) => {
       <div className="relative z-10 flex flex-col items-center text-center">
 
         {/* Headline card — unchanged */}
-        <div className="bg-primary-900/70 backdrop-blur-md rounded-2xl px-5 py-8 border border-primary-700/40 shadow-2xl w-full max-w-sm mx-auto mb-12">
+        <div className="bg-primary-900/85 rounded-2xl px-5 py-8 border border-primary-700/40 shadow-2xl w-full max-w-sm mx-auto mb-12">
           <h1
             className="text-3xl font-light gradient-text leading-tight mb-4"
             style={{ fontFamily: 'Spartan, sans-serif' }}

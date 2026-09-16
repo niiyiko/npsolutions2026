@@ -139,42 +139,37 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, preSelecte
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
-      {/* Backdrop */}
-      <div 
-        className="absolute inset-0 bg-black/80 backdrop-blur-md animate-fade-in"
+      {/* Backdrop — solid, no blur */}
+      <div
+        className="absolute inset-0 bg-black/85"
         onClick={onClose}
       />
       
-      <div className="relative z-10 w-full max-w-2xl max-h-[90vh] mx-2 sm:mx-4 overflow-y-auto animate-modal-entrance">
-        <div className="glass-card p-3 sm:p-4 md:p-6 border-2 border-accent-300/50 shadow-glow-lg relative overflow-hidden">
-          <div className="absolute -top-4 -right-4 w-24 sm:w-32 h-24 sm:h-32 bg-accent-400/20 rounded-full blur-xl animate-pulse-slow"></div>
-          <div className="absolute -bottom-4 -left-4 w-20 sm:w-24 h-20 sm:h-24 bg-secondary-500/20 rounded-full blur-lg animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
-
-          <div className="absolute top-0 right-0 w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-bl from-accent-300/30 to-transparent"></div>
-          <div className="absolute bottom-0 left-0 w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-tr from-secondary-500/30 to-transparent"></div>
+      <div className="relative z-10 w-full max-w-2xl max-h-[90vh] mx-2 sm:mx-4 overflow-y-auto">
+        <div className="bg-[#141414] border border-accent-300/30 rounded-xl p-3 sm:p-4 md:p-6 relative overflow-hidden">
 
           <div className="relative mb-3 sm:mb-4 z-10">
             <button
               onClick={onClose}
-              className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 z-20 p-1.5 sm:p-2 rounded-full bg-primary-800/90 hover:bg-primary-700/90 transition-all duration-300 border border-accent-300/30 hover:border-accent-300/50 shadow-glow-sm hover:shadow-glow-md"
+              className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 z-20 p-1.5 sm:p-2 rounded-full bg-primary-800 border border-accent-300/30 text-light-400 hover:text-white active:scale-95 transition-colors"
             >
-              <X className="h-4 w-4 sm:h-5 sm:w-5 text-light-400 hover:text-white transition-colors" />
+              <X className="h-4 w-4 sm:h-5 sm:w-5" />
             </button>
 
             <div className="pr-8">
               <div className="flex items-center gap-2 sm:gap-3 mb-1">
-                <div className="w-2 h-2 sm:w-3 sm:h-3 bg-accent-300 rounded-full animate-ping"></div>
+                <div className="w-2 h-2 sm:w-3 sm:h-3 bg-accent-300 rounded-full"></div>
                 <h2 className="text-base sm:text-xl md:text-2xl font-light tracking-wide">
                   <span className="gradient-text font-bold">Book a FREE Workshop</span>
                 </h2>
               </div>
               <div className="flex items-center gap-2 mb-1">
-                <div className="w-2 h-2 bg-success-400 rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-success-400 rounded-full"></div>
                 <span className="text-success-400 text-xs sm:text-sm font-medium">Available Now</span>
               </div>
-                            <div className="mt-2 p-1.5 sm:p-2 bg-accent-300/10 rounded-lg border border-accent-300/20">
+              <div className="mt-2 p-1.5 sm:p-2 bg-accent-300/10 rounded-lg border border-accent-300/20">
                 <p className="text-accent-300 text-xs sm:text-sm font-medium flex items-center gap-2">
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 animate-spin flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   Limited slots available this month
@@ -182,14 +177,13 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, preSelecte
               </div>
             </div>
           </div>
-          
-          {/* Success state with enhanced visibility */}
+
+          {/* Success state */}
           {result === "Form Submitted Successfully" ? (
             <div className="text-center py-4 sm:py-6 relative z-10">
               <div className="relative mb-3 sm:mb-4">
-                <div className="absolute inset-0 bg-success-500/20 rounded-full blur-xl animate-pulse"></div>
-                <div className="relative w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-success-500 to-success-400 rounded-full flex items-center justify-center mx-auto shadow-glow-md">
-                  <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-success-500 to-success-400 rounded-full flex items-center justify-center mx-auto">
+                  <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>

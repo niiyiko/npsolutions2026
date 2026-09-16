@@ -80,7 +80,7 @@ const MobileResults: React.FC = () => {
     <section id="results" className="py-12 px-4 relative overflow-hidden scroll-mt-16">
       <div className="relative z-10">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center bg-primary-800/50 backdrop-blur-sm rounded-full px-4 py-2 mb-4 border border-accent-300/20">
+          <div className="inline-flex items-center bg-primary-800/70 rounded-full px-4 py-2 mb-4 border border-accent-300/20">
             <span className="text-xs font-light tracking-[0.2em] text-accent-300">PORTFOLIO</span>
           </div>
           <h2 className="text-2xl font-bold tracking-wide">
