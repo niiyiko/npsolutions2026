@@ -17,7 +17,8 @@ const LazySection: React.FC<LazySectionProps> = ({ children, minHeight = '50vh' 
           observer.disconnect();
         }
       },
-      { rootMargin: '400px' }
+      // Require the section to actually enter the screen by 50px before triggering the load
+      { rootMargin: '-50px 0px 0px 0px' }
     );
 
     if (ref.current) observer.observe(ref.current);
@@ -25,7 +26,11 @@ const LazySection: React.FC<LazySectionProps> = ({ children, minHeight = '50vh' 
   }, []);
 
   return (
-    <div ref={ref} style={{ minHeight: isVisible ? 'auto' : minHeight }} className="transition-opacity duration-700">
+    <div 
+      ref={ref} 
+      style={{ minHeight: isVisible ? 'auto' : minHeight }} 
+      className={isVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0'}
+    >
       {isVisible ? children : null}
     </div>
   );
