@@ -1,5 +1,4 @@
 import React, { useState, lazy, Suspense } from 'react';
-import MobileBackground from './MobileBackground';
 import MobileHeader from './MobileHeader';
 import MobileHero from './MobileHero';
 import LazySection from './LazySection';
@@ -25,7 +24,6 @@ const MobileHomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen text-white font-sans overflow-x-hidden relative">
-      <MobileBackground />
 
       <MobileHeader onOpenModal={openModal} onOpenServices={openServices} />
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
 interface MobileHeroProps {
@@ -6,30 +6,9 @@ interface MobileHeroProps {
 }
 
 const MobileHero: React.FC<MobileHeroProps> = ({ onOpenModal }) => {
-  const particlesRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = particlesRef.current;
-    if (!container) return;
-    for (let i = 0; i < 8; i++) {
-      const p = document.createElement('span');
-      const size = Math.random() * 3 + 1;
-      p.style.cssText = `
-        position:absolute;width:${size}px;height:${size}px;
-        left:${Math.random() * 100}%;top:${Math.random() * 100}%;
-        border-radius:50%;opacity:${Math.random() * 0.4 + 0.1};
-        background:radial-gradient(circle,rgba(255,107,32,0.5),transparent);
-        animation:float ${Math.random() * 10 + 5}s ease-in-out infinite;
-        animation-delay:${Math.random() * 5}s;pointer-events:none;
-      `;
-      container.appendChild(p);
-    }
-    return () => { while (container.firstChild) container.removeChild(container.firstChild); };
-  }, []);
-
   return (
     <section id="home" className="relative min-h-screen flex flex-col justify-center pt-20 pb-12 px-5 overflow-hidden">
-      <div ref={particlesRef} className="absolute inset-0 pointer-events-none overflow-hidden" />
+
 
       <div className="relative z-10 flex flex-col items-center text-center">
 

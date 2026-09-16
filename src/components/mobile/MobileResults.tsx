@@ -67,14 +67,8 @@ const projects = [
   },
 ];
 
-const categories = ['All', ...Array.from(new Set(projects.map((p) => p.category)))];
-
 const MobileResults: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
   const [expandedId, setExpandedId] = useState<number | null>(null);
-
-  const filtered =
-    activeCategory === 'All' ? projects : projects.filter((p) => p.category === activeCategory);
 
   return (
     <section id="results" className="py-12 px-4 relative overflow-hidden scroll-mt-16">
@@ -90,29 +84,9 @@ const MobileResults: React.FC = () => {
           </h2>
         </div>
 
-        {/* Category filter pills */}
-        <div className="flex flex-wrap justify-center gap-2 mb-6">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => {
-                setActiveCategory(cat);
-                setExpandedId(null);
-              }}
-              className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
-                activeCategory === cat
-                  ? 'bg-gradient-to-r from-secondary-500 to-accent-400 text-white shadow-glow-md'
-                  : 'bg-primary-800/50 text-light-400 border border-primary-600'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
         {/* Accordion list */}
         <div className="space-y-3">
-          {filtered.map((project) => {
+          {projects.map((project) => {
             const isOpen = expandedId === project.id;
 
             return (
