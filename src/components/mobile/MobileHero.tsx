@@ -26,7 +26,13 @@ const MobileHero: React.FC<MobileHeroProps> = ({ onOpenModal }) => {
           </p>
 
           <p className="text-white text-sm mb-6 leading-relaxed font-medium tracking-wide bg-primary-800/50 px-4 py-2 rounded-full border border-primary-700/50">
-            We help local businesses capture and convert them automatically.
+            We help local businesses capture and convert them{' '}
+            <span className="font-extrabold gradient-text italic pr-1 relative inline-block">
+              automatically.
+              <svg className="absolute -bottom-0.5 left-0 w-full h-2 overflow-visible" viewBox="0 0 140 8" fill="none">
+                <path d="M-2 4 L138 4" stroke="#FF6B20" strokeWidth="2" strokeLinecap="round" className="animate-draw-underline" />
+              </svg>
+            </span>
           </p>
 
           <div className="flex flex-col gap-3">
