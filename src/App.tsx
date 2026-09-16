@@ -1,19 +1,26 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import DesktopHomePage from './components/DesktopHomePage';
-import MobileHomePage from './components/mobile/MobileHomePage';
 import { useIsMobile } from './hooks/useIsMobile';
-
+const DesktopHomePage = lazy(() => import('./components/DesktopHomePage'));
+const MobileHomePage = lazy(() => import('./components/mobile/MobileHomePage'));
 const ContactPage = lazy(() => import('./components/ContactPage'));
 
 function HomePage() {
   const isMobile = useIsMobile();
 
   if (isMobile) {
-    return <MobileHomePage />;
+    return (
+      <Suspense fallback={<div style={{ backgroundColor: '#0A0A0A', height: '100vh', width: '100vw' }} />}>
+        <MobileHomePage />
+      </Suspense>
+    );
   }
 
-  return <DesktopHomePage />;
+  return (
+    <Suspense fallback={<div style={{ backgroundColor: '#0A0A0A', height: '100vh', width: '100vw' }} />}>
+      <DesktopHomePage />
+    </Suspense>
+  );
 }
 
 function App() {
